@@ -1,11 +1,9 @@
-window.alert("Bye");
-
 var username = document.getElementById("username");
-var submit = document.getElementById("submit");
+var password = document.getElementById("password");
+var signin = document.getElementById("signin");
+var signup = document.getElementById("signup");
 
-function submit() {
-	window.alert("wok");
-}
+
 
 
 
