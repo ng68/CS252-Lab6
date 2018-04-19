@@ -1,10 +1,52 @@
 <!DOCTYPE html>
 <html>
-<body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+<style>
+.btn {
+  border: black;
+  color: white:
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+}
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+.submit {background-color: #2196F3;}
+.submit:hover {background-color: #0b7dda;}
+  
+
+</style>
+</head>
+
+<body>
+  <center>
+  <div class="w3-container w3-light-grey" align=>
+    <h1 align ="middle">Hello</h1>
+    <textarea id="username" placeholder="Enter username here..."></textarea>
+    <button class="btn submit">Submit</button>
+
+  </div>
+  </center>
 
 </body>
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBoiPN-9fT4SiltoRlagG0ifeDCrl3IemA",
+    authDomain: "cs252-lab6-41ad3.firebaseapp.com",
+    databaseURL: "https://cs252-lab6-41ad3.firebaseio.com",
+    projectId: "cs252-lab6-41ad3",
+    storageBucket: "cs252-lab6-41ad3.appspot.com",
+    messagingSenderId: "710736731413"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script src="index.js"></script> 
+
 </html>
 
