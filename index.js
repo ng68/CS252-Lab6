@@ -1,3 +1,5 @@
+window.alert("Bye");
+
 var username = document.getElementById("username");
 var submit = document.getElementById("submit");
 
