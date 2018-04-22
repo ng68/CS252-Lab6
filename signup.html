@@ -7,14 +7,13 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 
 <body>
-  <div class="w3-container w3-teal" id = "ind" align=middle>
-    <h1 align ="middle">Welcome to Class Maps!</h1>
+  <div class="w3-container w3-teal" align=middle>
+    <h1 align ="middle">Sign Up!</h1>
     <ul>
-        <li>Email: <input type="text" class = "upd" placeholder = "Enter your email" name="fname"><br></li>
-        <li>Password: <input type="text" placeholder = "Enter your password" name="lname"><br></li>
+        <li>Email: <input type="text" class = "upd" placeholder = "Enter email here..." name="fname"><br></li>
+        <li>Password: <input type="text" placeholder = "Enter password here..." name="lname"><br></li>
     </ul>
-    <button class="btn" id = "signin">Sign In</button>
-    <button class="btn" onclick = "signUpClick()" id = "signup">Sign Up</button>
+    <button class="btn" id = "submit">Submit</button>
   </div>
 </body>
 
@@ -30,9 +29,6 @@
     messagingSenderId: "710736731413"
   };
   firebase.initializeApp(config);
-</script>
-
-<script src="index.js"></script> 
+</script> 
 
 </html>
-

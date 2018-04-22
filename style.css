@@ -11,8 +11,8 @@
     background-color: #0b7dda;
   }
 
-  div {
-    height: 400px;
+div {
+    height: 300px;
     width: 400px;
     background: black;
 
@@ -23,12 +23,12 @@
     margin-left: -192px;
 }
 
-ul {
-  list-style-type: none;
+#ind {
+  height: 350px;
 }
 
-h1 {
-
+ul {
+  list-style-type: none;
 }
 
 textarea {
@@ -44,6 +44,19 @@ textarea {
 body {
   background-image: url(Walking.jpg);
   background-size: 1536px 864px;
+}
+
+input {
+  font-family: Tahoma, sans-serif;
+  border: 3px solid #cccccc;
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  margin: 0 0 15px;
+}
+
+.upd {
+  margin-left: 29px;
 }
 
     
