@@ -1,10 +1,13 @@
-var username = document.getElementById("username");
+var username = document.getElementById("email");
 var password = document.getElementById("password");
-var signin = document.getElementById("signin");
-var signup = document.getElementById("signup");
 
 function signUpClick() {
     window.location.href = "signup.html";
+}
+
+function signInClick() {
+    window.alert(username.value);
+    window.alert(password.value);
 }
 
 
