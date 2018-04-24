@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+<link rel="stylesheet" type="text/css" href="style2.css">
+
+<body>
+    <!-- <p>Click on the buttons inside the tabbed menu:</p>  -->
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'London')">London</button>
+        <button class="tablinks" onclick="openCity(event, 'map')">Map</button>
+        <button id = "log" onclick="logoutClick()">Logout</button>
+    </div>
+
+    <div id="London" class="tabcontent">
+        <h3>London</h3>
+        <p>London is the capital city of England.</p>
+    </div>
+      
+    <div id="map" class="tabcontent">
+    </div>
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBoiPN-9fT4SiltoRlagG0ifeDCrl3IemA",
+    authDomain: "cs252-lab6-41ad3.firebaseapp.com",
+    databaseURL: "https://cs252-lab6-41ad3.firebaseio.com",
+    projectId: "cs252-lab6-41ad3",
+    storageBucket: "cs252-lab6-41ad3.appspot.com",
+    messagingSenderId: "710736731413"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoiPN-9fT4SiltoRlagG0ifeDCrl3IemA&callback=initMap"> 
+</script>
+
+<script src="main.js"></script> 
+
+</html>
+

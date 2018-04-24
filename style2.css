@@ -1,0 +1,38 @@
+button {
+    border: black;
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #2196F3;
+  }
+
+ button:hover {
+    background-color: #0b7dda;
+  }
+
+.tab button.active {
+    background-color: coral;    
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #2196F3;
+}
+
+#map {
+    height: 677px;
+    width: 100%;
+   }
+
+#log {
+    margin-left: 1200px;
+}

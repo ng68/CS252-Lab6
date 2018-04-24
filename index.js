@@ -6,9 +6,7 @@ function signUpClick() {
 }
 
 function signInClick() {
-    window.alert(username.value);
-    window.alert(password.value);
-    window.alert("Hello");
+    window.location.href = "main.html";
 }
 
 
