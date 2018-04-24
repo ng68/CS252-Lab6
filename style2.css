@@ -7,6 +7,18 @@ button {
     background-color: #2196F3;
   }
 
+  select {
+        width: 100px;
+  }
+
+  input {
+        width: 70px;
+  }
+
+  .tod {
+      width: 50px;
+  }
+
  button:hover {
     background-color: #0b7dda;
   }
@@ -18,7 +30,6 @@ button {
 .tabcontent {
     display: none;
     padding: 6px 12px;
-    border: 1px solid #ccc;
     border-top: none;
 }
 
@@ -34,5 +45,41 @@ button {
    }
 
 #log {
-    margin-left: 1200px;
+    margin-left: 1100px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+    width:33.33%;
+}
+
+#adder {
+    margin-left: 10px;
+}
+
+#butadd {
+    padding: 30px 70px;
+    
+}
+
+.container {
+    margin: 10px 50px;
+}
+
+.ali {
+    margin: 10px 40px;
+}
+
+.picky {
+    margin-top: 10px;
+}
+
+#classroom {
+    width: 90px;
 }

@@ -9,14 +9,88 @@
 <body>
     <!-- <p>Click on the buttons inside the tabbed menu:</p>  -->
     <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'London')">London</button>
+        <button class="tablinks" onclick="openCity(event, 'manage')">Manage</button>
         <button class="tablinks" onclick="openCity(event, 'map')">Map</button>
         <button id = "log" onclick="logoutClick()">Logout</button>
     </div>
 
-    <div id="London" class="tabcontent">
-        <h3>London</h3>
-        <p>London is the capital city of England.</p>
+    <div id="manage" class="tabcontent">
+        <h1 align = "center">Add or Delete Classes from your Schedule!</h1>
+        <p align = "center">Select a location from the drop down list and then put in the time of your class.</p>
+        
+        <!-- The first column for adding classes. -->
+        <div>
+            <div class = "column" align = "center">
+                <p>Add a class:</p>
+                <div class = "container">
+                    <select>
+                        <option value="volvo">Djdjdjjdjdjdjjdjdjdjdjjd</option>
+                    </select>
+                </div>
+                <div class = "ali">
+                    <input type="text" id = "adder" placeholder = "Time" name="fname"><br>
+                </div>
+                <div class = "container">
+                    <select class = "tod">
+                        <option value="AM">AM</option>
+                        <option value="PM">PM</option>
+                    </select>
+                    <div class = "picky">
+                            <input type="text" id = "classroom" placeholder = "Classroom" name="fname"><br>
+                    </div>
+                </div>
+                    
+                    <div id = "butadd">
+                        <button id = "add" onclick="logoutClick()">Add</button>
+                    </div>
+                </div>
+            
+            <!-- The middle column for displaying classes. -->
+            <div class = "column" align = "center">
+                <p>Add a drop down list:</p>
+                <div class = "container">
+                    <select>
+                        <option value="volvo">Djdjdjjdjdjdjjdjdjdjdjjd</option>
+                    </select>
+                </div>
+                <div class = "ali">
+                    <input type="text" id = "adder" placeholder = "Time" name="fname"><br>
+                </div>
+                <div class = "container">
+                    <select class = "tod">
+                        <option value="AM">AM</option>
+                        <option value="PM">PM</option>
+                    </select>
+                </div>
+                    
+                    <div id = "butadd">
+                        <button id = "add" onclick="logoutClick()">Add</button>
+                    </div>
+                </div>
+            
+            <!-- The third column for removing classes. -->
+            <div class = "column" align = "center">
+                    <p> down list:</p>
+                    <div class = "container">
+                        <select>
+                            <option value="volvo">Djdjdjjdjdjdjjdjdjdjdjjd</option>
+                        </select>
+                    </div>
+                    <div class = "ali">
+                        <input type="text" id = "adder" placeholder = "Time" name="fname"><br>
+                    </div>
+                    <div class = "container">
+                        <select class = "tod">
+                            <option value="AM">AM</option>
+                            <option value="PM">PM</option>
+                        </select>
+                    </div>
+                        
+                        <div id = "butadd">
+                            <button id = "add" onclick="logoutClick()">Add</button>
+                        </div>
+                    </div>
+        </div>
     </div>
       
     <div id="map" class="tabcontent">
