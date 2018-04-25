@@ -26,7 +26,15 @@ function initMap() {
     });
   }
 
-  function logoutClick() {
-      window.alert("Goodbye!");
-      window.location.href = "index.html";
-  }
+  var logoutBtn = document.getElementById("log");
+  logoutBtn.addEventListener('click', e=> {
+    const promise = firebase.auth().signOut().catch(function(error) {
+        alert('Logout Unsuccessful');
+    });
+    if(promise){
+        window.location.href = "index.html";
+    }
+    else {
+        console.log('User not logged out');
+    }
+  });
