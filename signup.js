@@ -8,21 +8,23 @@ submitBtn.addEventListener('click', e=> {
     const auth = firebase.auth();
     const promise = auth.createUserWithEmailAndPassword(user,pass).catch(function(error){
         var errorCode = error.code;
-        var errorMessage = error.message;
+        var errorMessage = error.message;;
         if(errorCode === 'auth/invalid-email'){
             alert('Invalid Email');
         }
         else {
             alert(errorMessage);
         }
-    }); 
-    if(promise){
-        window.location.href = "index.html";
-    }
-    else {
-        console.log('User not created');
-    }
+    });
 });
-
+firebase.auth().onAuthStateChanged(firebaseUser => {
+        if(firebaseUser){
+            console.log('Success!');
+            window.location.href = "index.html";
+        }
+        else {
+            console.log('User not created')
+        }
+    });
 
     

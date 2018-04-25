@@ -30,12 +30,10 @@ SignUpbtn.addEventListener('click', e=> {
     window.location.href = "signup.html";
 });
 
-auth.onAuthStateChanged(firebaseUser => {
-    if(firebaseUser){
+auth.onAuthStateChanged(function(user) {
+    if(user){
+        console.log('Signed In');
         window.location.href = "main.html";
-    }
-    else {
-        console.log('User not logged in');
     }
 });
 

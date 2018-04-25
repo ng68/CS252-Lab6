@@ -15,8 +15,8 @@
     </div>
 
     <div id="manage" class="tabcontent">
-        <h1 align = "center">Add or Delete Classes from your Schedule</h1>
-        <p align = "center">Once classes are added, view the map in the tab above to see where they are.</p>
+        <h1 align = "center">Add or Delete Classes from your Schedule!</h1>
+        <p align = "center">Select a location from the drop down list and then put in the time of your class.</p>
         
         <!-- The first column for adding classes. -->
         <div>
@@ -46,27 +46,50 @@
                 </div>
             
             <!-- The middle column for displaying classes. -->
-            <div class = "column" align = "center" style = background:lightgrey>
-                <p id = edited>Current Classes</p>
+            <div class = "column" align = "center">
+                <p>Add a drop down list:</p>
                 <div class = "container">
-                    <p><i>No classes added.</i></p>
+                    <select>
+                        <option value="volvo">Djdjdjjdjdjdjjdjdjdjdjjd</option>
+                    </select>
                 </div>
-            </div>
+                <div class = "ali">
+                    <input type="text" id = "adder" placeholder = "Time" name="fname"><br>
+                </div>
+                <div class = "container">
+                    <select class = "tod">
+                        <option value="AM">AM</option>
+                        <option value="PM">PM</option>
+                    </select>
+                </div>
+                    
+                    <div id = "butadd">
+                        <button id = "add" onclick="logoutClick()">Add</button>
+                    </div>
+                </div>
             
             <!-- The third column for removing classes. -->
             <div class = "column" align = "center">
-                    <p> Remove a class:</p>
+                    <p> down list:</p>
                     <div class = "container">
                         <select>
                             <option value="volvo">Djdjdjjdjdjdjjdjdjdjdjjd</option>
                         </select>
                     </div>
-                    <div id = "butadd">
-                        <button id = "add" onclick="">Remove</button>
-                        <p>OR</p>
-                        <button id = "add" onclick="">Clear All</button>
+                    <div class = "ali">
+                        <input type="text" id = "adder" placeholder = "Time" name="fname"><br>
                     </div>
-            </div>
+                    <div class = "container">
+                        <select class = "tod">
+                            <option value="AM">AM</option>
+                            <option value="PM">PM</option>
+                        </select>
+                    </div>
+                        
+                        <div id = "butadd">
+                            <button id = "add" onclick="logoutClick()">Add</button>
+                        </div>
+                    </div>
         </div>
     </div>
       

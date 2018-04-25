@@ -31,11 +31,6 @@ function initMap() {
     const promise = firebase.auth().signOut().catch(function(error) {
         alert('Logout Unsuccessful');
     });
-    if(promise){
-        window.location.href = "index.html";
-    }
-    else {
-        window.alert("Error");
-        console.log('User not logged out');
-    }
+    window.location.href = "index.html";
   });
+  
