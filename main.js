@@ -35,6 +35,7 @@ function initMap() {
         window.location.href = "index.html";
     }
     else {
+        window.alert("Error");
         console.log('User not logged out');
     }
   });
