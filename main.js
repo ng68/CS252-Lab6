@@ -1,4 +1,8 @@
 document.getElementsByClassName('tablinks')[0].click();
+var build = document.getElementById("clas");
+var time = document.getElementById("adder");
+var ap = document.getElementById("tod");
+var classroom = document.getElementById("classroom");
 
 function openCity(evt, cityName) {
     var i, tabcontent, tablinks;
@@ -33,17 +37,30 @@ function initMap() {
     });
     window.location.href = "index.html";
   });
-
-function tester(){
     
-    var ref = firebase.database().ref().child("Buildings");
+  // HOW TO RETRIEVE FROM FIREBASE
+  var ref = firebase.database().ref().child("Buildings");
+  var options = "";
+  
+  ref.on("child_added", snapshot => {
+  options = "<option>" + snapshot.child("Name").val() + "</option>";
+  document.getElementById("clas").innerHTML += options;
+  });
 
-    // Attach an asynchronous callback to read the data at our posts reference
-    ref.on("value", function(snapshot) {
-    window.alert(snapshot.val());
-    }, function (errorObject) {
-    window.alert("Failed");
-    });
+  // HOW TO PUT IN TO FIREBASE
+  function addButton() {
+    
+    var fireRef = firebase.database().ref("Users/temp/Class/Name of Class");
+    
+    fireRef.child("AMPM").set(ap.value);
+    fireRef.child("Classroom").set(classroom.value);
+    fireRef.child("Name").set(build.value);
+    fireRef.child("Time").set(time. value);
+
   }
+  
+
+  
+  
   
 
