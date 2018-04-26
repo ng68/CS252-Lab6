@@ -50,6 +50,14 @@ function initMap() {
 
   // HOW TO PUT IN TO FIREBASE
   function addButton() {
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        var usernam = user.email.substr(0,user.email.indexOf("."));
+        alert(usernam);
+      } else {
+        window.location.href = "index.html";
+      }
+    });
     
     // var fireRef = firebase.database().ref("Users/newUser/Class");
     
