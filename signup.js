@@ -22,7 +22,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
             console.log('Success!');
             var edited = firebaseUser.email;
             edited = edited.substr(0,edited.indexOf('.'));
-            firebase.database().ref("Users").child(edited).set("none");
+            firebase.database().ref("Users").child("colecompton28@gmail").set("none");
             window.location.href = "index.html";
         }
         else {
