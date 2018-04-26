@@ -36,7 +36,7 @@ function initMap() {
 
 function tester(){
     
-    var ref = db.ref("cs252-lab6-41ad3/Buildings/LWSN/Lat");
+    var ref = firebase.database().ref().child("Buildings");
 
     // Attach an asynchronous callback to read the data at our posts reference
     ref.on("value", function(snapshot) {
