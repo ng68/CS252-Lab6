@@ -21,7 +21,9 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         if(firebaseUser){
             console.log('Success!');
             var ref = firebase.database().ref("Users");
-            ref.child(username.value).set("none"); 
+            alert(username.value);
+            
+            // ref.child(username.value).set("none"); 
             window.location.href = "index.html";
         }
         else {
