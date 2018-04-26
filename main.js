@@ -57,7 +57,19 @@ function initMap() {
     // fireRef.child("Classroom").set(classroom.value);
     // fireRef.child("Name").set(build.value);
     // fireRef.child("Time").set(time.value);
+
+    //HOW TO REMOVE CLASS FROM LIST
+    //var rref = firebase.database().ref("Users").child("username");
+    //rref.on("child_added", snapshot => {
+    //var temp = snapshot.child("AMPM").val();
+    //alert(temp);
+    //if (temp === "PM") {
+    //  snapshot.ref.remove();
+    //}
+  //});
     
+    //HOW TO ADD CLASS
+    //firebase.database().ref("Users").child("Hello").push({"hello": "hi", "no": "yes", "dkd": "fkf"});
   }
   
 

@@ -20,7 +20,9 @@ submitBtn.addEventListener('click', e=> {
 firebase.auth().onAuthStateChanged(firebaseUser => {
         if(firebaseUser){
             console.log('Success!');
-            // firebase.database().ref("Users/" + username.value).set("hello");
+            var edited = username.value;
+            edited = edited.substr(0,edited.indexOf('.'));
+            firebase.database().ref("Users/" + edited).set("none");
             window.location.href = "index.html";
         }
         else {
