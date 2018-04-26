@@ -51,12 +51,12 @@ function initMap() {
   // HOW TO PUT IN TO FIREBASE
   function addButton() {
     
-    var fireRef = firebase.database().ref("Users/newUser/Class");
+    // var fireRef = firebase.database().ref("Users/newUser/Class");
     
-    fireRef.child("AMPM").set(ap.value);
-    fireRef.child("Classroom").set(classroom.value);
-    fireRef.child("Name").set(build.value);
-    fireRef.child("Time").set(time.value);
+    // fireRef.child("AMPM").set(ap.value);
+    // fireRef.child("Classroom").set(classroom.value);
+    // fireRef.child("Name").set(build.value);
+    // fireRef.child("Time").set(time.value);
     
   }
   

@@ -8,7 +8,7 @@ submitBtn.addEventListener('click', e=> {
     const auth = firebase.auth();
     const promise = auth.createUserWithEmailAndPassword(user,pass).catch(function(error){
         var errorCode = error.code;
-        var errorMessage = error.message;;
+        var errorMessage = error.message;
         if(errorCode === 'auth/invalid-email'){
             alert('Invalid Email');
         }
@@ -20,10 +20,7 @@ submitBtn.addEventListener('click', e=> {
 firebase.auth().onAuthStateChanged(firebaseUser => {
         if(firebaseUser){
             console.log('Success!');
-            var reff = firebase.database().ref("Users");
-            alert(username.value);
-            
-            reff.child("Hello").set("none"); 
+            // firebase.database().ref("Users/" + username.value).set("hello");
             window.location.href = "index.html";
         }
         else {
