@@ -20,13 +20,14 @@ submitBtn.addEventListener('click', e=> {
 firebase.auth().onAuthStateChanged(firebaseUser => {
         if(firebaseUser){
             console.log('Success!');
-            var edited = username.value;
+            var edited = firebaseUser.email;
             edited = edited.substr(0,edited.indexOf('.'));
+            alert("Users/" + edited);
             firebase.database().ref("Users/" + edited).set("none");
             window.location.href = "index.html";
         }
         else {
-            console.log('User not created')
+            console.log('User not created');
         }
     });
 
