@@ -20,10 +20,10 @@ submitBtn.addEventListener('click', e=> {
 firebase.auth().onAuthStateChanged(firebaseUser => {
         if(firebaseUser){
             console.log('Success!');
-            var ref = firebase.database().ref("Users");
+            var reff = firebase.database().ref("Users");
             alert(username.value);
             
-            // ref.child(username.value).set("none"); 
+            reff.child("Hello").set("none"); 
             window.location.href = "index.html";
         }
         else {

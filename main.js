@@ -56,8 +56,8 @@ function initMap() {
     fireRef.child("AMPM").set(ap.value);
     fireRef.child("Classroom").set(classroom.value);
     fireRef.child("Name").set(build.value);
-    fireRef.child("Time").set(time. value);
-    var ref = firebase.database().ref("Users");
+    fireRef.child("Time").set(time.value);
+    
   }
   
 
