@@ -23,7 +23,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
             var edited = firebaseUser.email;
             edited = edited.substr(0,edited.indexOf('.'));
             alert("Users/" + edited);
-            firebase.database().ref("Users/" + edited).set("none");
+            firebase.database().ref("Users").child(edited).set("none");
             window.location.href = "index.html";
         }
         else {
