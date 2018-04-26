@@ -85,6 +85,8 @@ function initMap() {
           var ref1 = firebase.database().ref("Users").child(usernam2);
           var options1 = "";
           var options3 = "";
+          document.getElementById("lis").innerHTML = "";
+          document.getElementById("rem").innerHTML = "";
           ref1.on("child_added", snapshot1 => {
             options1 = "<option>" + snapshot1.child("Name").val() + " " + snapshot1.child("Classroom").val() + " " + snapshot1.child("Time").val() + snapshot1.child("AMPM").val() + "</option>";
             document.getElementById("rem").innerHTML += options1;
