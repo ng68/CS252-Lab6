@@ -3,7 +3,8 @@ var build = document.getElementById("clas");
 var time = document.getElementById("adder");
 var ap = document.getElementById("tod");
 var classroom = document.getElementById("classroom");
-var hello = 0;
+var remover = document.getElementById("rem");
+refresh();
 
 function openCity(evt, cityName) {
     var i, tabcontent, tablinks;
@@ -39,21 +40,26 @@ function initMap() {
     window.location.href = "index.html";
   });
     
-  // HOW TO RETRIEVE FROM FIREBASE
+  // ADD CLASS DROP DOWN LIST
   var ref = firebase.database().ref().child("Buildings");
   var options = "";
-  
   ref.on("child_added", snapshot => {
   options = "<option>" + snapshot.child("Name").val() + "</option>";
   document.getElementById("clas").innerHTML += options;
-  });
+  }); 
 
   // HOW TO PUT IN TO FIREBASE
   function addButton() {
     firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
+      if (user) { 
         var usernam = user.email.substr(0,user.email.indexOf("."));
-        alert(usernam);
+        firebase.database().ref("Users").child(usernam).push( {
+          "AMPM": ap.value, 
+          "Classroom": classroom.value, 
+          "Name": build.value,
+          "Time": time.value
+      });
+      refresh();
       } else {
         window.location.href = "index.html";
       }
@@ -65,19 +71,80 @@ function initMap() {
     // fireRef.child("Classroom").set(classroom.value);
     // fireRef.child("Name").set(build.value);
     // fireRef.child("Time").set(time.value);
+  }
 
-    //HOW TO REMOVE CLASS FROM LIST
-    //var rref = firebase.database().ref("Users").child("username");
-    //rref.on("child_added", snapshot => {
-    //var temp = snapshot.child("AMPM").val();
-    //alert(temp);
-    //if (temp === "PM") {
-    //  snapshot.ref.remove();
-    //}
-  //});
-    
-    //HOW TO ADD CLASS
-    //firebase.database().ref("Users").child("Hello").push({"hello": "hi", "no": "yes", "dkd": "fkf"});
+  function refresh() {
+   firebase.auth().onAuthStateChanged(function(user) {
+    if (user) { 
+      var usernam2 = user.email.substr(0,user.email.indexOf("."));
+      firebase.database().ref("Users").child(usernam2).on("value", function(snapshot2){
+        if(snapshot2.val() === "none") {
+          document.getElementById("lis").innerHTML = "<p><i>No classes added.</i></p>";
+        }else {
+          //REFRESHES CLASS LIST AND DROP DOWN LIST AND MAP
+          var ref1 = firebase.database().ref("Users").child(usernam2);
+          var options1 = "";
+          var options3 = "";
+          ref1.on("child_added", snapshot1 => {
+            options1 = "<option>" + snapshot1.child("Name").val() + " " + snapshot1.child("Classroom").val() + " " + snapshot1.child("Time").val() + snapshot1.child("AMPM").val() + "</option>";
+            document.getElementById("rem").innerHTML += options1;
+            options3 = "<p>" + snapshot1.child("Name").val() + " " + snapshot1.child("Classroom").val() + " " + snapshot1.child("Time").val() + snapshot1.child("AMPM").val() + "</p>";
+            document.getElementById("lis").innerHTML += options3;
+          });
+        }
+      });
+    } else {
+      window.location.href = "index.html";
+    }
+  });
+
+
+  }
+
+  function removeButton() {
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) { 
+        var usernam4 = user.email.substr(0,user.email.indexOf("."));
+        var rref = firebase.database().ref("Users").child(usernam4);
+        var workable = remover.value;
+        //Building
+        var temp1 = workable.substr(0, workable.indexOf(" "));
+        workable = workable.substr(workable.indexOf(" ")+1);
+        //AMPM
+        var temp4 = workable.substr((workable.length)-2, workable.length);
+        workable = workable.substr(0, (workable.length)-2);
+        //Classroom
+        var temp2 = workable.substr(0, workable.indexOf(" "));
+        //Time
+        var temp3 = workable.substr(workable.indexOf(" ")+1);
+        
+        rref.on("child_added", snapshot => {
+        var tempA = snapshot.child("AMPM").val();
+        var tempB = snapshot.child("Name").val();
+        var tempC = snapshot.child("Classroom").val();
+        var tempD = snapshot.child("Time").val();
+        
+        if (tempA == temp4 && tempB == temp1 && tempC == temp2 && tempD == temp3) {
+           snapshot.ref.remove();
+        }
+      }); 
+        refresh();
+      } else {
+        window.location.href = "index.html";
+      }
+    }); 
+  }
+
+  function clearButton() {
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) { 
+        var usernam1 = user.email.substr(0,user.email.indexOf("."));
+        firebase.database().ref("Users").child(usernam1).set("none");
+        refresh();
+      } else {
+        window.location.href = "index.html";
+      }
+    });
   }
   
 

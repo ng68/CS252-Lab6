@@ -47,8 +47,7 @@
             <!-- The middle column for displaying classes. -->
             <div class = "column" align = "center" style = background:lightgrey>
                 <p id = edited>Current Classes</p>
-                <div class = "container">
-                    <p><i>No classes added.</i></p>
+                <div class = "container" id = "lis" name = "lis">
                 </div>        
             </div>
             
@@ -56,15 +55,14 @@
             <div class = "column" align = "center">
                     <p> Remove a class:</p>
                     <div class = "container">
-                        <select>
-                            <option value="volvo">Djdjdjjdjdjdjjdjdjdjdjjd</option>
+                        <select name = "rem" id = "rem">
                         </select>
                     </div>
                         
                     <div id = "butadd">
-                        <button id = "add" onclick="">Remove</button>
+                        <button id = "add" onclick="removeButton()">Remove</button>
                         <p>OR</p>
-                        <button id = "add" onclick="">Clear All</button>
+                        <button id = "add" onclick="clearButton()">Clear All</button>
                     </div>
                 </div>
         </div>
