@@ -35,11 +35,7 @@ function initMap() {
   });
 
 function tester(){
-    // Import Admin SDK
-    var admin = require("firebase-admin");
-
-    // Get a database reference to our posts
-    var db = admin.database();
+    
     var ref = db.ref("cs252-lab6-41ad3/Buildings/LWSN/Lat");
 
     // Attach an asynchronous callback to read the data at our posts reference
