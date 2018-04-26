@@ -3,6 +3,7 @@ var build = document.getElementById("clas");
 var time = document.getElementById("adder");
 var ap = document.getElementById("tod");
 var classroom = document.getElementById("classroom");
+var hello = 0;
 
 function openCity(evt, cityName) {
     var i, tabcontent, tablinks;
@@ -50,13 +51,13 @@ function initMap() {
   // HOW TO PUT IN TO FIREBASE
   function addButton() {
     
-    var fireRef = firebase.database().ref("Users/temp/Class/Name of Class");
+    var fireRef = firebase.database().ref("Users/newUser/Class");
     
     fireRef.child("AMPM").set(ap.value);
     fireRef.child("Classroom").set(classroom.value);
     fireRef.child("Name").set(build.value);
     fireRef.child("Time").set(time. value);
-
+    var ref = firebase.database().ref("Users");
   }
   
 
