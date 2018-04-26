@@ -94,6 +94,7 @@ function initMap() {
         }
       });
     } else {
+      //firebase.database().ref("Users").child("hello").set("hi");
       window.location.href = "index.html";
     }
   });

@@ -19,10 +19,11 @@ submitBtn.addEventListener('click', e=> {
 });
 firebase.auth().onAuthStateChanged(firebaseUser => {
         if(firebaseUser){
-            console.log('Success!');
+            alert("hi");
             var edited = firebaseUser.email;
             edited = edited.substr(0,edited.indexOf('.'));
             firebase.database().ref("Users").child("colecompton28@gmail").set("none");
+            console.log('Success!');
             window.location.href = "index.html";
         }
         else {
