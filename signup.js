@@ -22,6 +22,10 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
             alert("hi");
             var edited = firebaseUser.email;
             edited = edited.substr(0,edited.indexOf('.'));
+            alert(edited);
+            firebase.database().ref("Users").child("compton0@purdue").on("value", function(snapshot){
+                alert(snapshot.val());
+            });
             firebase.database().ref("Users").child("colecompton28@gmail").set("none");
             console.log('Success!');
             window.location.href = "index.html";
