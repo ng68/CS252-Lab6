@@ -20,26 +20,41 @@ function openCity(evt, cityName) {
     evt.currentTarget.className += " active";
 }
 
+function addPins() {
+
+}
+
 function initMap() {
     var purdue = {lat: 40.4237, lng: -86.9212};
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 15,
       center: purdue
     });
+    var checker = [];
     var ref5 = firebase.database().ref("Users").child("colecompton28@gmail");
     ref5.on("child_added", snapshot5 => {
       var Name = snapshot5.child("Name").val();
+      var count = 0;
+      var i;
+      for (i = 0; i < checker.length; i++) {
+        if (Name == checker[i]) {
+          count++;
+        }
+      }
+      checker.push(Name);
       var Classroom = snapshot5.child("Classroom").val();
       var Time = snapshot5.child("Time").val();
       var AMPM = snapshot5.child("AMPM").val();
       var ref6 = firebase.database().ref("Buildings").child(Name);
       ref6.on("value", function(snapshot6){
-        var Lon = snapshot6.child("Lat").val();
-        var Lat = snapshot6.child("Lon").val();
-        var upd = {lat: Lat, lng: Lon};
+        var Lat = snapshot6.child("Lat").val() + (count/25000);
+        var Lon = snapshot6.child("Lon").val();
+        var upd = new google.maps.LatLng(Lat, Lon);
+        var titl = Name + " " + Classroom + " " + Time + AMPM;
         var marker = new google.maps.Marker({
           position: upd,
-          map: map
+          map: map,
+          title: titl
         });
       });
     });
@@ -102,7 +117,7 @@ function initMap() {
         }
       });
     } else {
-      window.location.href = "index.html";
+      //window.location.href = "index.html";
     }
   });
 
