@@ -20,10 +20,6 @@ function openCity(evt, cityName) {
     evt.currentTarget.className += " active";
 }
 
-function addPins() {
-
-}
-
 function initMap() {
     var purdue = {lat: 40.4237, lng: -86.9212};
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -97,6 +93,7 @@ function initMap() {
   function refresh() {
    firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
+      initMap();
       var usernam2 = user.email.substr(0,user.email.indexOf("."));
       firebase.database().ref("Users").child(usernam2).on("value", function(snapshot2){
         if(snapshot2.val() === "none") {
