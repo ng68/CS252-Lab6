@@ -21,13 +21,16 @@ function openCity(evt, cityName) {
 }
 
 function initMap() {
-    var purdue = {lat: 40.4237, lng: -86.9212};
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) { 
+      var usernam5 = user.email.substr(0,user.email.indexOf("."));
+      var purdue = {lat: 40.4237, lng: -86.9212};
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 15,
       center: purdue
     });
     var checker = [];
-    var ref5 = firebase.database().ref("Users").child("colecompton28@gmail");
+    var ref5 = firebase.database().ref("Users").child(usernam5);
     ref5.on("child_added", snapshot5 => {
       var Name = snapshot5.child("Name").val();
       var count = 0;
@@ -54,6 +57,10 @@ function initMap() {
         });
       });
     });
+    } else {
+      window.location.href = "index.html";
+    }
+  });
   }
 
   var logoutBtn = document.getElementById("log");
