@@ -34,12 +34,13 @@ function initMap() {
       var AMPM = snapshot5.child("AMPM").val();
       var ref6 = firebase.database().ref("Buildings").child(Name);
       ref6.on("value", function(snapshot6){
-        alert(snapshot6.child("Lat").val());
-        alert(snapshot6.child("Lon").val());
-      });
-      var marker = new google.maps.Marker({
-        position: purdue,
-        map: map
+        var Lon = snapshot6.child("Lat").val();
+        var Lat = snapshot6.child("Lon").val();
+        var upd = {lat: Lat, lng: Lon};
+        var marker = new google.maps.Marker({
+          position: upd,
+          map: map
+        });
       });
     });
   }
