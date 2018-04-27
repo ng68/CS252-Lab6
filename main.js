@@ -75,7 +75,8 @@ function initMap() {
 
   function refresh() {
    firebase.auth().onAuthStateChanged(function(user) {
-    if (user) { 
+    if (user) {
+      document.getElementById("lis").innerHTML = "<p><i>No classes added.</i></p>"; 
       var usernam2 = user.email.substr(0,user.email.indexOf("."));
       firebase.database().ref("Users").child(usernam2).on("value", function(snapshot2){
         if(snapshot2.val() === "none") {
