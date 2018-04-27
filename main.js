@@ -26,9 +26,21 @@ function initMap() {
       zoom: 15,
       center: purdue
     });
-    var marker = new google.maps.Marker({
-      position: purdue,
-      map: map
+    var ref5 = firebase.database().ref("Users").child("colecompton28@gmail");
+    ref5.on("child_added", snapshot5 => {
+      var Name = snapshot5.child("Name").val();
+      var Classroom = snapshot5.child("Classroom").val();
+      var Time = snapshot5.child("Time").val();
+      var AMPM = snapshot5.child("AMPM").val();
+      var ref6 = firebase.database().ref("Buildings").child(Name);
+      ref6.on("value", function(snapshot6){
+        alert(snapshot6.child("Lat").val());
+        alert(snapshot6.child("Lon").val());
+      });
+      var marker = new google.maps.Marker({
+        position: purdue,
+        map: map
+      });
     });
   }
 
@@ -64,23 +76,15 @@ function initMap() {
         window.location.href = "index.html";
       }
     });
-    
-    // var fireRef = firebase.database().ref("Users/newUser/Class");
-    
-    // fireRef.child("AMPM").set(ap.value);
-    // fireRef.child("Classroom").set(classroom.value);
-    // fireRef.child("Name").set(build.value);
-    // fireRef.child("Time").set(time.value);
   }
 
   function refresh() {
    firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      document.getElementById("lis").innerHTML = "<p><i>No classes added.</i></p>"; 
       var usernam2 = user.email.substr(0,user.email.indexOf("."));
       firebase.database().ref("Users").child(usernam2).on("value", function(snapshot2){
         if(snapshot2.val() === "none") {
-          document.getElementById("lis").innerHTML = "<p><i>No classes added.</i></p>";
+          document.getElementById("lis").innerHTML = "<p><i>Classes cleared.</i></p>";
         }else {
           //REFRESHES CLASS LIST AND DROP DOWN LIST AND MAP
           var ref1 = firebase.database().ref("Users").child(usernam2);
@@ -97,7 +101,6 @@ function initMap() {
         }
       });
     } else {
-      //firebase.database().ref("Users").child("hello").set("hi");
       window.location.href = "index.html";
     }
   });
